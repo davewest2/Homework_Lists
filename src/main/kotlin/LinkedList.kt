@@ -10,7 +10,7 @@ class LinkedList {
     fun remove(item: Int): Nothing {
         TODO("implement me")
     }
-
+// foo
     // add the other methods here
 
     // Ignore my implementation, I am just used to make testing easier, see
