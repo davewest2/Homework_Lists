@@ -12,7 +12,7 @@ class LinkedListTest {
     fun addsOneElement() {
         val arr = LinkedList()
         arr.add(3)
-        assertEquals(arr.toList(), arrayOf(3))
+        assertEquals(arr.toList(), listOf(3))
     }
 
     @Test
@@ -20,7 +20,21 @@ class LinkedListTest {
         val arr = LinkedList()
         arr.add(3)
         arr.add(1)
-        assertEquals(arr.toList(), arrayOf(3, 1))
+        assertEquals(arr.toList(), listOf(3, 1))
+    }
+    @Test
+    fun containsAnItem() {
+        val arr = LinkedList()
+        arr.add(3)
+        arr.add(1)
+        assert(arr.contains(1))
+    }
+    @Test
+    fun doesNotContainsAnItem() {
+        val arr = LinkedList()
+        arr.add(3)
+        arr.add(1)
+        assert(!arr.contains(0))
     }
 
     @Test
@@ -29,7 +43,7 @@ class LinkedListTest {
         arr.add(3)
         arr.add(4)
         arr.remove(3)
-        assertEquals(arr.toList(), arrayOf(4))
+        assertEquals(arr.toList(), listOf(4))
     }
 
     @Test
@@ -39,7 +53,7 @@ class LinkedListTest {
         arr.add(1)
         arr.add(1)
         arr.remove(1)
-        assertEquals(arr.toList(), arrayOf(3))
+        assertEquals(arr.toList(), listOf(3))
     }
 
     @Test
@@ -48,6 +62,6 @@ class LinkedListTest {
         arr.add(3)
         arr.add(1)
         arr.remove(2)
-        assertEquals(arr.toList(), arrayOf(3, 1))
+        assertEquals(arr.toList(), listOf(3, 1))
     }
 }
