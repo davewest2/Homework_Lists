@@ -1,28 +1,42 @@
 class LinkedList {
+    // establishes an object which is an isolated node
     private var head: Node? = null
 
+    // class definition of what a node looks like: a value and a pointer to
+    // the next link (which is another node)
     class Node(val value: Int, var nextLink: Node?)
 
     fun add(item: Int) {
+        // checks if there is a chain yet, if not, creates a new node, the
+        // head, pointing to null
         if (head == null) {
             head = Node(item, null)
+        // if there is a head, this while block steps down the chain until
+        // the head is found (links to null)
         } else {
             var tailNode = head
             while (tailNode?.nextLink != null) {
                 tailNode = tailNode.nextLink
             }
+            // once found, this line adds a node to the tail and points it to
+            // null
             tailNode?.nextLink = Node(item, null)
         }
     }
 
     fun contains(item: Int): Boolean {
         var current = head
+        // again, while loop steps through the links of the chain
         while (current != null) {
+            // if the item is found, the function returns true, job done
             if (item == current.value) {
                 return true
             }
+            //if the item isn't found the while loop continues stepping
+            // through the links
             current = current.nextLink
         }
+        // if the item is not found, false is returned, item not in list
         return false
     }
 
@@ -38,16 +52,31 @@ class LinkedList {
                     prev.nextLink = current.nextLink
                 }
             } else {
-                // this block advances "previous" anchor
+                // this block advances "previous" anchor another step along
+                // the chain
              prev = current
             }
-            // this block advances the "current" anchor
+            // this block advances the "current" anchor another step along
+            // the chain
             current = current.nextLink
         }
     }
 
+    fun first(): Int {
+        if(head != null) {
+            return head!!.value
+        } else {
+            throw IllegalArgumentException("There is no list!")
+        }
+    }
 
-
+    fun isEmpty(): Boolean {
+        if (head != null) {
+            return false
+        } else {
+            return true
+        }
+    }
 
 
 // foo
