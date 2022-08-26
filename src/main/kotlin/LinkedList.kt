@@ -71,14 +71,20 @@ class LinkedList {
     }
 
     fun isEmpty(): Boolean {
-        if (head != null) {
-            return false
-        } else {
-            return true
-        }
+        return head == null
     }
 
-
+    fun last(): Int? {
+        var current = head
+        while (current != null){
+            if (current.nextLink == null) {
+                break
+            } else {
+                current = current.nextLink
+            }
+        }
+        return current?.value
+    }
 // foo
     // add the other methods here
 

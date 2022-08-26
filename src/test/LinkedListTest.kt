@@ -93,8 +93,8 @@ class LinkedListTest {
     fun checksIfNotEmpty() {
         val arr = LinkedList()
         arr.add(1)
-        val full = arr.isEmpty()
-        assertEquals(full, false )
+        val empty = arr.isEmpty()
+        assertEquals(empty, false )
     }
 
     @Test
@@ -102,5 +102,15 @@ class LinkedListTest {
         val arr = LinkedList()
         val empty = arr.isEmpty()
         assertEquals(empty, true )
+    }
+
+    @Test
+    fun findsLast(){
+        val arr = LinkedList()
+        arr.add(1)
+        arr.add(2)
+        arr.add(3)
+        val lastVal = arr.last()
+        assertEquals(lastVal, 3 )
     }
 }
