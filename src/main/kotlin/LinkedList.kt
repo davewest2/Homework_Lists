@@ -77,7 +77,7 @@ class LinkedList {
     fun last(): Int? {
         var current = head
         if (head == null) {
-            throw IllegalArgumentException("There is no list!")
+            throw IllegalArgumentException("List is empty!")
         }
         while (current != null){
             if (current.nextLink == null) {
@@ -102,8 +102,22 @@ class LinkedList {
         }
         return count
     }
-// foo
-    // add the other methods here
+
+    fun get(index: Int): Int? {
+        var current = head
+        //val index = 3
+        var count = 0
+        while (current != null) {
+            if (count == index) {
+                break
+            } else {
+                current = current.nextLink
+                count ++
+            }
+        }
+        return current?.value
+    }
+
 
     // Ignore my implementation, I am just used to make testing easier, see
     // LinkedListTest.kt!

@@ -119,7 +119,7 @@ class LinkedListTest {
             arr.last()
             fail()
         } catch (e: IllegalArgumentException) {
-            assertEquals(e.message, "There is no list!")
+            assertEquals(e.message, "List is empty!")
         }
     }
 
@@ -131,5 +131,15 @@ class LinkedListTest {
         //arr.add(3)
         val arraySize = arr.sizeList()
         assertEquals(arraySize, 1)
+    }
+
+    @Test
+    fun returnsFromIndex() {
+        val arr = LinkedList()
+        arr.add(1)
+        arr.add(25)
+        arr.add(39)
+        val test = arr.get(2)
+        assertEquals(test, 39)
     }
 }
