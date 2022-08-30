@@ -76,6 +76,9 @@ class LinkedList {
 
     fun last(): Int? {
         var current = head
+        if (head == null) {
+            throw IllegalArgumentException("There is no list!")
+        }
         while (current != null){
             if (current.nextLink == null) {
                 break
@@ -84,6 +87,20 @@ class LinkedList {
             }
         }
         return current?.value
+    }
+
+    fun sizeList(): Int {
+        var current = head
+        var count = 1
+        while (current != null) {
+            if (current.nextLink == null) {
+                break
+            } else {
+                current = current.nextLink
+            }
+            count++
+        }
+        return count
     }
 // foo
     // add the other methods here

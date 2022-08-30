@@ -70,7 +70,6 @@ class LinkedListTest {
     @Test
     fun findsFirst() {
         val arr = LinkedList()
-        // what if no first item. Is it if LinkedList == null?
         arr.add(1)
         arr.add(2)
         val first = arr.first()
@@ -112,5 +111,25 @@ class LinkedListTest {
         arr.add(3)
         val lastVal = arr.last()
         assertEquals(lastVal, 3 )
+    }
+    @Test
+    fun findsLastEmpty() {
+        val arr = LinkedList()
+        try {
+            arr.last()
+            fail()
+        } catch (e: IllegalArgumentException) {
+            assertEquals(e.message, "There is no list!")
+        }
+    }
+
+    @Test
+    fun returnsSize() {
+        val arr = LinkedList()
+        arr.add(1)
+        //arr.add(2)
+        //arr.add(3)
+        val arraySize = arr.sizeList()
+        assertEquals(arraySize, 1)
     }
 }
