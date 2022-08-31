@@ -142,4 +142,16 @@ class LinkedListTest {
         val test = arr.get(2)
         assertEquals(test, 39)
     }
+
+    @Test
+    fun findsNoIndex() {
+        val arr = LinkedList()
+        arr.add(1)
+        try {
+            arr.get(2)
+            fail()
+        } catch (e: IllegalArgumentException) {
+            assertEquals(e.message, "The list aint that long, bud!")
+        }
+    }
 }

@@ -105,15 +105,21 @@ class LinkedList {
 
     fun get(index: Int): Int? {
         var current = head
-        //val index = 3
+        if (head == null) {
+            throw IllegalArgumentException("List is empty!")
+        }
         var count = 0
         while (current != null) {
             if (count == index) {
-                break
+                return current.value
             } else {
                 current = current.nextLink
                 count ++
             }
+        }
+        if (count != index) {
+            throw ArrayIndexOutOfBoundsException(
+                "The list aint that long, bud!")
         }
         return current?.value
     }
