@@ -1,5 +1,6 @@
 import junit.framework.TestCase.*
 import org.junit.Test
+import javax.imageio.plugins.jpeg.JPEGImageReadParam
 
 class LinkedListTest {
     @Test
@@ -85,7 +86,6 @@ class LinkedListTest {
         } catch (e: IllegalArgumentException) {
             assertEquals(e.message, "There is no list!")
         }
-
     }
 
     @Test
@@ -112,6 +112,7 @@ class LinkedListTest {
         val lastVal = arr.last()
         assertEquals(lastVal, 3 )
     }
+
     @Test
     fun findsLastEmpty() {
         val arr = LinkedList()
@@ -144,14 +145,33 @@ class LinkedListTest {
     }
 
     @Test
-    fun findsNoIndex() {
+    fun throwsWhenGetInvalidIndex() {
         val arr = LinkedList()
         arr.add(1)
         try {
             arr.get(2)
             fail()
-        } catch (e: IllegalArgumentException) {
-            assertEquals(e.message, "The list aint that long, bud!")
+        } catch (e: ArrayIndexOutOfBoundsException) {
+            assertEquals(e.message, "Requested index 2 is larger than list " +
+                    "(size 1)")
         }
+    }
+
+    @Test
+    fun addsItemToQueue() {
+        var arr = LinkedList()
+        arr.addToQueue(1)
+        arr.addToQueue(2)
+        assertEquals(arr.toList(), listOf(1,2))
+    }
+
+    @Test
+    fun removesFirstInItem() {
+        var arr = LinkedList()
+        arr.addToQueue(3)
+        arr.addToQueue(2)
+        arr.addToQueue(1)
+        arr.removeFromQueue()
+        assertEquals(arr.toList(), listOf(2,1))
     }
 }

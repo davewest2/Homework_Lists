@@ -4,15 +4,15 @@ class LinkedList {
 
     // class definition of what a node looks like: a value and a pointer to
     // the next link (which is another node)
-    class Node(val value: Int, var nextLink: Node?)
+    class Node(var value: Int, var nextLink: Node?)
 
     fun add(item: Int) {
         // checks if there is a chain yet, if not, creates a new node, the
         // head, pointing to null
         if (head == null) {
             head = Node(item, null)
-        // if there is a head, this while block steps down the chain until
-        // the head is found (links to null)
+            // if there is a head, this while block steps down the chain until
+            // the head is found (links to null)
         } else {
             var tailNode = head
             while (tailNode?.nextLink != null) {
@@ -45,7 +45,7 @@ class LinkedList {
         var prev: Node? = null
         while (current != null) {
             // this block handles removing an item
-            if (current.value == item){
+            if (current.value == item) {
                 if (prev == null) {
                     head = current.nextLink
                 } else {
@@ -54,7 +54,7 @@ class LinkedList {
             } else {
                 // this block advances "previous" anchor another step along
                 // the chain
-             prev = current
+                prev = current
             }
             // this block advances the "current" anchor another step along
             // the chain
@@ -63,7 +63,7 @@ class LinkedList {
     }
 
     fun first(): Int {
-        if(head != null) {
+        if (head != null) {
             return head!!.value
         } else {
             throw IllegalArgumentException("There is no list!")
@@ -79,7 +79,7 @@ class LinkedList {
         if (head == null) {
             throw IllegalArgumentException("List is empty!")
         }
-        while (current != null){
+        while (current != null) {
             if (current.nextLink == null) {
                 break
             } else {
@@ -91,49 +91,95 @@ class LinkedList {
 
     fun sizeList(): Int {
         var current = head
-        var count = 1
+        var count = 0
         while (current != null) {
-            if (current.nextLink == null) {
-                break
-            } else {
-                current = current.nextLink
-            }
+            current = current.nextLink
             count++
         }
         return count
     }
 
-    fun get(index: Int): Int? {
+    fun get(index: Int): Int {
         var current = head
-        if (head == null) {
-            throw IllegalArgumentException("List is empty!")
-        }
         var count = 0
         while (current != null) {
             if (count == index) {
                 return current.value
             } else {
                 current = current.nextLink
-                count ++
+                count++
             }
         }
-        if (count != index) {
-            throw ArrayIndexOutOfBoundsException(
-                "The list aint that long, bud!")
+        throw ArrayIndexOutOfBoundsException(
+            "Requested index $index is larger than list (size $count)"
+        )
+    }
+// Queue Homework
+
+    fun addToQueue(item: Int) {
+        /*Accept an item and add it to the queue.*/
+        var current = head
+        if (head == null) {
+            head = Node(item, null)
+        } else {
+            while (current?.nextLink != null) {
+                current = current.nextLink
+            }
+            current?.nextLink = Node(item, null)
         }
-        return current?.value
     }
 
-
-    // Ignore my implementation, I am just used to make testing easier, see
-    // LinkedListTest.kt!
-    fun toList(): List<Int> {
-        val arr = mutableListOf<Int>()
-        var cur = head;
-        while (cur != null) {
-            arr.add(cur.value)
-            cur = cur.nextLink
+    /*Return the last element of the queue and remove it from the queue. If
+    the queue is empty, throw an exception.*/
+    fun removeFromQueue() {
+        if (head?.value == null) {
+            throw IllegalArgumentException("The queue is empty!")
         }
-        return arr.toList()
+        var current = head
+        while (current != null) {
+            if (current.nextLink != null) {
+                current = current.nextLink
+            } else {
+                current = null
+            }
+        }
     }
+        // otherwise, if the current nextlink points to a further
+        // link in the queue, we assign val prev to the current link and
+        // then advance current to the next link in the chain and go
+        // round the while loop again
+
+
+      //  fun peek():Int {
+        //val current = head
+        //while (current != null) {
+
+        //}
+    /*Like dequeue, return the last element of the queue, but do not remove it from the queue. If the
+    queue is empty, throw an exception*/
+
+
+
+
+    //fun size()
+    /*Return the size of the queue.*/
+
+
+
+    //fun queueIsEmpty()
+    /*Return true if the queue is empty*/
+
+
+
+        // Ignore my implementation, I am just used to make testing easier, see
+        // LinkedListTest.kt!
+        fun toList(): List<Int> {
+            val arr = mutableListOf<Int>()
+            var cur = head;
+            while (cur != null) {
+                arr.add(cur.value)
+                cur = cur.nextLink
+            }
+            return arr.toList()
+        }
 }
