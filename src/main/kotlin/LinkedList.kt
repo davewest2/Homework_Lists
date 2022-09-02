@@ -76,17 +76,14 @@ class LinkedList {
 
     fun last(): Int? {
         var current = head
-        if (head == null) {
-            throw IllegalArgumentException("List is empty!")
-        }
         while (current != null) {
             if (current.nextLink == null) {
-                break
+                return current.value
             } else {
                 current = current.nextLink
             }
         }
-        return current?.value
+        throw IllegalArgumentException("List is empty!")
     }
 
     fun sizeList(): Int {
@@ -131,55 +128,56 @@ class LinkedList {
 
     /*Return the last element of the queue and remove it from the queue. If
     the queue is empty, throw an exception.*/
-    fun removeFromQueue() {
-        if (head?.value == null) {
-            throw IllegalArgumentException("The queue is empty!")
-        }
+    fun removeFromQueue(): Int {
         var current = head
+        var prev: Node? = null
         while (current != null) {
-            if (current.nextLink != null) {
-                current = current.nextLink
+            if (current.nextLink == null) {
+                if (prev == null) {
+                    head = null
+                } else {
+                    prev.nextLink = null
+                }
+                return current.value
             } else {
-                current = null
+                prev = current
+                current = current.nextLink
             }
         }
+        throw IllegalArgumentException("List is empty!")
     }
-        // otherwise, if the current nextlink points to a further
-        // link in the queue, we assign val prev to the current link and
-        // then advance current to the next link in the chain and go
-        // round the while loop again
+    // otherwise, if the current nextlink points to a further
+    // link in the queue, we assign val prev to the current link and
+    // then advance current to the next link in the chain and go
+    // round the while loop again
 
 
-      //  fun peek():Int {
-        //val current = head
-        //while (current != null) {
+    //  fun peek():Int {
+    //val current = head
+    //while (current != null) {
 
-        //}
+    //}
     /*Like dequeue, return the last element of the queue, but do not remove it from the queue. If the
     queue is empty, throw an exception*/
-
-
 
 
     //fun size()
     /*Return the size of the queue.*/
 
 
-
     //fun queueIsEmpty()
     /*Return true if the queue is empty*/
 
 
-
-        // Ignore my implementation, I am just used to make testing easier, see
-        // LinkedListTest.kt!
-        fun toList(): List<Int> {
-            val arr = mutableListOf<Int>()
-            var cur = head;
-            while (cur != null) {
-                arr.add(cur.value)
-                cur = cur.nextLink
-            }
-            return arr.toList()
+    // Ignore my implementation, I am just used to make testing easier, see
+    // LinkedListTest.kt!
+    fun toList(): List<Int> {
+        val arr = mutableListOf<Int>()
+        var cur = head;
+        while (cur != null) {
+            arr.add(cur.value)
+            cur = cur.nextLink
         }
+        return arr.toList()
+    }
 }
