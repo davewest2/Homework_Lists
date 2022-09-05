@@ -146,26 +146,36 @@ class LinkedList {
         }
         throw IllegalArgumentException("List is empty!")
     }
-    // otherwise, if the current nextlink points to a further
-    // link in the queue, we assign val prev to the current link and
-    // then advance current to the next link in the chain and go
-    // round the while loop again
 
-
-    //  fun peek():Int {
-    //val current = head
-    //while (current != null) {
-
-    //}
-    /*Like dequeue, return the last element of the queue, but do not remove it from the queue. If the
+    fun peek():Int {
+        /*Like dequeue, return the last element of the queue, but do not remove it from the queue. If the
     queue is empty, throw an exception*/
+        var current = head
+        while (current != null) {
+            if (current.nextLink == null) {
+                    return current.value
+                } else {
+                current = current.nextLink
+                }
+        }
+        throw IllegalArgumentException("List is empty!")
+    }
+
+    fun sizeOfQueue(): Int {
+        /*Return the size of the queue.*/
+        var current = head
+        var counter = 0
+        while (current != null) {
+            current = current.nextLink
+            counter++
+        }
+        return counter
+    }
 
 
-    //fun size()
-    /*Return the size of the queue.*/
-
-
-    //fun queueIsEmpty()
+    fun queueIsEmpty(): Boolean {
+        return head == null
+    }
     /*Return true if the queue is empty*/
 
 
