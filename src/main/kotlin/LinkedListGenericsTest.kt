@@ -1,24 +1,23 @@
 import junit.framework.TestCase.*
 import org.junit.Test
 
-
-class LinkedListTest {
+class LinkedListGenericsTest {
     @Test
     fun buildsAnEmptyList() {
-        val arr = LinkedList()
+        val arr = LinkedListGenerics<Int>()
         assertEquals(arr.toList(), listOf<Int>())
     }
 
     @Test
     fun addsOneElement() {
-        val arr = LinkedList()
+        val arr = LinkedListGenerics<Int>()
         arr.add(3)
         assertEquals(arr.toList(), listOf(3))
     }
 
     @Test
     fun addsMultipleElements() {
-        val arr = LinkedList()
+        val arr = LinkedListGenerics<Int>()
         arr.add(3)
         arr.add(1)
         assertEquals(arr.toList(), listOf(3, 1))
@@ -26,7 +25,7 @@ class LinkedListTest {
 
     @Test
     fun containsAnItem() {
-        val arr = LinkedList()
+        val arr = LinkedListGenerics<Int>()
         arr.add(3)
         arr.add(1)
         assert(arr.contains(1))
@@ -34,7 +33,7 @@ class LinkedListTest {
 
     @Test
     fun doesNotContainsAnItem() {
-        val arr = LinkedList()
+        val arr = LinkedListGenerics<Int>()
         arr.add(3)
         arr.add(1)
         assert(!arr.contains(0))
@@ -42,7 +41,7 @@ class LinkedListTest {
 
     @Test
     fun removesAnItem() {
-        val arr = LinkedList()
+        val arr = LinkedListGenerics<Int>()
         arr.add(3)
         arr.add(4)
         arr.remove(3)
@@ -51,7 +50,7 @@ class LinkedListTest {
 
     @Test
     fun removeMultipleItems() {
-        val arr = LinkedList()
+        val arr = LinkedListGenerics<Int>()
         arr.add(3)
         arr.add(1)
         arr.add(1)
@@ -61,7 +60,7 @@ class LinkedListTest {
 
     @Test
     fun removesNothing() {
-        val arr = LinkedList()
+        val arr = LinkedListGenerics<Int>()
         arr.add(3)
         arr.add(1)
         arr.remove(2)
@@ -70,7 +69,7 @@ class LinkedListTest {
 
     @Test
     fun findsFirst() {
-        val arr = LinkedList()
+        val arr = LinkedListGenerics<Int>()
         arr.add(1)
         arr.add(2)
         val first = arr.first()
@@ -79,7 +78,7 @@ class LinkedListTest {
 
     @Test
     fun throwsWhenFirstIsNull() {
-        val arr = LinkedList()
+        val arr = LinkedListGenerics<Int>()
         try {
             arr.first()
             fail()
@@ -90,7 +89,7 @@ class LinkedListTest {
 
     @Test
     fun checksIfNotEmpty() {
-        val arr = LinkedList()
+        val arr = LinkedListGenerics<Int>()
         arr.add(1)
         val empty = arr.isEmpty()
         assertEquals(empty, false )
@@ -98,14 +97,14 @@ class LinkedListTest {
 
     @Test
     fun checksIfEmpty() {
-        val arr = LinkedList()
+        val arr = LinkedListGenerics<Int>()
         val empty = arr.isEmpty()
         assertEquals(empty, true )
     }
 
     @Test
     fun findsLast(){
-        val arr = LinkedList()
+        val arr = LinkedListGenerics<Int>()
         arr.add(1)
         arr.add(2)
         arr.add(3)
@@ -115,7 +114,7 @@ class LinkedListTest {
 
     @Test
     fun findsLastEmpty() {
-        val arr = LinkedList()
+        val arr = LinkedListGenerics<Int>()
         try {
             arr.last()
             fail()
@@ -126,7 +125,7 @@ class LinkedListTest {
 
     @Test
     fun returnsSize() {
-        val arr = LinkedList()
+        val arr = LinkedListGenerics<Int>()
         arr.add(1)
         //arr.add(2)
         //arr.add(3)
@@ -136,7 +135,7 @@ class LinkedListTest {
 
     @Test
     fun returnsFromIndex() {
-        val arr = LinkedList()
+        val arr = LinkedListGenerics<Int>()
         arr.add(1)
         arr.add(25)
         arr.add(39)
@@ -146,7 +145,7 @@ class LinkedListTest {
 
     @Test
     fun throwsWhenGetInvalidIndex() {
-        val arr = LinkedList()
+        val arr = LinkedListGenerics<Int>()
         arr.add(1)
         try {
             arr.get(2)
