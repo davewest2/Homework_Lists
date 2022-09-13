@@ -1,14 +1,14 @@
-class Queue {
+class Queue <T>{
     // establishes an object which is an isolated node
-    private var head: Node? = null
+    private var head: Node<T>? = null
 
     // class definition of what a node looks like: a value and a pointer to
     // the next link (which is another node)
-    class Node(var value: Int, var nextLink: Node?)
+    class Node<T>(var value: T, var nextLink: Node<T>?)
 
 // Queue Homework
 
-    fun addToQueue(item: Int) {
+    fun addToQueue(item: T) {
         /*Accept an item and add it to the queue.*/
         if (head != null) {
             head = Node(item, head)
@@ -20,9 +20,9 @@ class Queue {
 
     /*Return the last element of the queue and remove it from the queue. If
     the queue is empty, throw an exception.*/
-    fun removeFromQueue(): Int {
+    fun removeFromQueue(): T {
         var current = head
-        var prev: Node? = null
+        var prev: Node<T>? = null
         while (current != null) {
             if (current.nextLink == null) {
                 if (prev == null) {
@@ -39,7 +39,7 @@ class Queue {
         throw IllegalArgumentException("List is empty!")
     }
 
-    fun peek():Int {
+    fun peek():T {
         /*Like dequeue, return the last element of the queue, but do not remove it from the queue. If the
     queue is empty, throw an exception*/
         var current = head
@@ -73,8 +73,8 @@ class Queue {
 
     // Ignore my implementation, I am just used to make testing easier, see
     // LinkedListTest.kt!
-    fun toList(): List<Int> {
-        val arr = mutableListOf<Int>()
+    fun toList(): List<T> {
+        val arr = mutableListOf<T>()
         var cur = head;
         while (cur != null) {
             arr.add(cur.value)

@@ -5,7 +5,15 @@ class OrderedQueueTest {
 
     @Test
     fun addsItemToOrderedQueue() {
-        var arr = OrderedQueue()
+        var arr = OrderedQueue<Int>{ a, b ->
+            if (a < b) {
+                 1
+            } else if (a == b) {
+                 0
+            } else {
+                 -1
+            }
+        }
         arr.addItemToOrderedQueue(3)
         arr.addItemToOrderedQueue(1)
         arr.addItemToOrderedQueue(5)
@@ -16,7 +24,15 @@ class OrderedQueueTest {
 
     @Test
     fun removeLastItem() {
-        var arr = OrderedQueue()
+        var arr = OrderedQueue<Int>{ a, b ->
+            if (a < b) {
+                1
+            } else if (a == b) {
+                0
+            } else {
+                -1
+            }
+        }
         arr.addItemToOrderedQueue(1)
         arr.addItemToOrderedQueue(2)
         arr.addItemToOrderedQueue(3)
@@ -26,7 +42,15 @@ class OrderedQueueTest {
 
     @Test
     fun removeLastItemFindsEmptyQueue() {
-        val arr = OrderedQueue()
+        var arr = OrderedQueue<Int>{ a, b ->
+            if (a < b) {
+                1
+            } else if (a == b) {
+                0
+            } else {
+                -1
+            }
+        }
         try {
             arr.removeFromQueue()
             fail()
@@ -37,7 +61,15 @@ class OrderedQueueTest {
 
     @Test
     fun returnsFirstItemInOQ() {
-        var arr = OrderedQueue()
+        var arr = OrderedQueue<Int>{ a, b ->
+            if (a < b) {
+                1
+            } else if (a == b) {
+                0
+            } else {
+                -1
+            }
+        }
         arr.addItemToOrderedQueue(1)
         arr.addItemToOrderedQueue(2)
         arr.addItemToOrderedQueue(3)
@@ -47,7 +79,15 @@ class OrderedQueueTest {
 
     @Test
     fun throwsExceptionIfFirstItemIsEmpty() {
-        val arr = OrderedQueue()
+        var arr = OrderedQueue<Int>{ a, b ->
+            if (a < b) {
+                1
+            } else if (a == b) {
+                0
+            } else {
+                -1
+            }
+        }
         try {
             arr.peek()
             fail()
@@ -58,7 +98,15 @@ class OrderedQueueTest {
 
     @Test
     fun countsOrderedQueue() {
-        var arr = OrderedQueue()
+        var arr = OrderedQueue<Int>{ a, b ->
+            if (a < b) {
+                1
+            } else if (a == b) {
+                0
+            } else {
+                -1
+            }
+        }
         arr.addItemToOrderedQueue(1)
         arr.addItemToOrderedQueue(1)
         arr.addItemToOrderedQueue(1)
@@ -68,7 +116,15 @@ class OrderedQueueTest {
 
     @Test
     fun returnsTrueIfOqIsEmpty() {
-        val arr = OrderedQueue()
+        var arr = OrderedQueue<Int>{ a, b ->
+            if (a < b) {
+                1
+            } else if (a == b) {
+                0
+            } else {
+                -1
+            }
+        }
         val emptyQueue = arr.isEmptyOQ()
         assertEquals(emptyQueue, true)
     }
