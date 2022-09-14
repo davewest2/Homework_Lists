@@ -6,6 +6,16 @@ class LinkedListGenerics<T> {
     // the next link (which is another node)
     class Node<T>(var value: T, var nextLink: Node<T>?)
 
+    fun concatenate(item1: LinkedListGenerics<T>, item2:
+    LinkedListGenerics<T>) {
+        var tailNode = item1.head
+        while (tailNode?.nextLink != null) {
+            tailNode = tailNode.nextLink
+        }
+        tailNode?.nextLink = item2.head
+    }
+
+
     fun add(item: T) {
         // checks if there is a chain yet, if not, creates a new node, the
         // head, pointing to null

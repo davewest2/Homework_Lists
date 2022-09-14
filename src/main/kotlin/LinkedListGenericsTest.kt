@@ -2,6 +2,22 @@ import junit.framework.TestCase.*
 import org.junit.Test
 
 class LinkedListGenericsTest {
+
+    @Test
+    fun concatenatesTwoLists(){
+        var existingList = LinkedListGenerics<Int>()
+        existingList.add(1)
+        existingList.add(2)
+        existingList.add(3)
+        val arr = LinkedListGenerics<Int>()
+        arr.add(4)
+        arr.add(5)
+        arr.add(6)
+        arr.concatenate(existingList, arr)
+        assertEquals(existingList.toList(), listOf(1,2,3,4,5,6))
+    }
+
+
     @Test
     fun buildsAnEmptyList() {
         val arr = LinkedListGenerics<Int>()
