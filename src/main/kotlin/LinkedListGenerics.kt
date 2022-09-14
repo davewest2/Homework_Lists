@@ -7,11 +7,15 @@ class LinkedListGenerics<T> {
     class Node<T>(var value: T, var nextLink: Node<T>?)
 
     fun concatenate(item: LinkedListGenerics<T>) {
-        var tailNode = head
-        while (tailNode?.nextLink != null) {
-            tailNode = tailNode.nextLink
+        if (head == null){
+            head = item.head
+        } else {
+            var tailNode = head
+            while (tailNode?.nextLink != null) {
+                tailNode = tailNode.nextLink
+            }
+            tailNode?.nextLink = item.head
         }
-        tailNode?.nextLink = item.head
     }
 
 

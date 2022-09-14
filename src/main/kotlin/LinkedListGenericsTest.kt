@@ -6,15 +6,15 @@ class LinkedListGenericsTest {
     @Test
     fun concatenatesTwoLists(){
         val existingList = LinkedListGenerics<Int>()
-        existingList.add(1)
+        /*existingList.add(1)
         existingList.add(2)
-        existingList.add(3)
+        existingList.add(3)*/
         val arr = LinkedListGenerics<Int>()
         arr.add(4)
         arr.add(5)
         arr.add(6)
         existingList.concatenate(arr)
-        assertEquals(existingList.toList(), listOf(1,2,3,4,5,6))
+        assertEquals(existingList.toList(), listOf(4,5,6))
     }
 
 

@@ -38,8 +38,32 @@ class OrderedQueueTest {
     }
 
     @Test
-    fun addsItemToOrderedQueue() {
+    fun addsItemToOrderedQueueNumber() {
         var arr = OrderedQueue(numberOrdering)
+        arr.addItemToOrderedQueue(myCar1)
+        arr.addItemToOrderedQueue(myCar2)
+        arr.addItemToOrderedQueue(myCar3)
+        arr.addItemToOrderedQueue(myCar4)
+        arr.addItemToOrderedQueue(myCar5)
+        assertEquals(arr.toList(), listOf(myCar4, myCar2, myCar1, myCar3,
+            myCar5))
+    }
+
+    @Test
+    fun addsItemToOrderedQueueStringMake() {
+        var arr = OrderedQueue(stringOrderingMake)
+        arr.addItemToOrderedQueue(myCar1)
+        arr.addItemToOrderedQueue(myCar2)
+        arr.addItemToOrderedQueue(myCar3)
+        arr.addItemToOrderedQueue(myCar4)
+        arr.addItemToOrderedQueue(myCar5)
+        assertEquals(arr.toList(), listOf(myCar1, myCar2, myCar3, myCar4,
+            myCar5))
+    }
+
+    @Test
+    fun addsItemToOrderedQueueStringColour() {
+        var arr = OrderedQueue(stringOrderingColour)
         arr.addItemToOrderedQueue(myCar1)
         arr.addItemToOrderedQueue(myCar2)
         arr.addItemToOrderedQueue(myCar3)
