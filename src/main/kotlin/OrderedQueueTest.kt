@@ -10,6 +10,24 @@ val myCar5 = Car(1960, "Porsche", "White")
 
 class OrderedQueueTest {
     val numberOrdering: (a: Car, b: Car) -> Int = { a, b ->
+        if (a.year < b.year) {
+            1
+        } else if (a.year == b.year) {
+            0
+        } else {
+            -1
+        }
+    }
+    val stringOrderingMake: (a: Car, b: Car) -> Int = { a, b ->
+        if (a.make < b.make) {
+            1
+        } else if (a.make == b.make) {
+            0
+        } else {
+            -1
+        }
+    }
+    val stringOrderingColour: (a: Car, b: Car) -> Int = { a, b ->
         if (a.colour < b.colour) {
             1
         } else if (a.colour == b.colour) {
