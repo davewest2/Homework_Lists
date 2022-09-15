@@ -16,7 +16,7 @@ class OrderedQueue<T>(val ordering: (a: T, b: T) -> Int) {
 //be able to sort non-numeric types
 
 
-    fun addItemToOrderedQueue(item: T) {
+    fun add(item: T) {
         var current = head
         var prev: Node<T>? = null
         if (head == null) {
@@ -46,7 +46,7 @@ class OrderedQueue<T>(val ordering: (a: T, b: T) -> Int) {
             }
         }
     }
-    fun removeFromQueue(): T? {
+    fun remove(): T? {
 //Return the last element of the queue and remove it from the queue. This should be the smallest
 //element in the queue. If the queue is empty, throw an exception.
         if (head?.value == null) {
@@ -67,7 +67,7 @@ class OrderedQueue<T>(val ordering: (a: T, b: T) -> Int) {
         }
     }
 
-    fun sizeOQ(): Int {
+    fun size(): Int {
         var current = head
         var counter = 0
         while (current != null){
@@ -77,7 +77,7 @@ class OrderedQueue<T>(val ordering: (a: T, b: T) -> Int) {
         return counter
     }
 
-fun isEmptyOQ(): Boolean {
+fun isEmpty(): Boolean {
     return head == null
 }
 

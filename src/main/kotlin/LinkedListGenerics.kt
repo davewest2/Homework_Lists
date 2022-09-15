@@ -9,12 +9,11 @@ class LinkedListGenerics<T> {
     fun concatenate(item: LinkedListGenerics<T>) {
         if (head == null){
             head = item.head
+            // implement with find last function
         } else {
-            var tailNode = head
-            while (tailNode?.nextLink != null) {
-                tailNode = tailNode.nextLink
-            }
-            tailNode?.nextLink = item.head
+
+            var tailNode = last()
+            tailNode.nextLink = item.head
         }
     }
 

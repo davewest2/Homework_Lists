@@ -116,7 +116,7 @@ class LinkedList {
     // LinkedListTest.kt!
     fun toList(): List<Int> {
         val arr = mutableListOf<Int>()
-        var cur = head;
+        var cur = head
         while (cur != null) {
             arr.add(cur.value)
             cur = cur.nextLink

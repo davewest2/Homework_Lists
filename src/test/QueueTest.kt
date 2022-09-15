@@ -6,19 +6,19 @@ class QueueTest {
     @Test
     fun addsItemToQueue() {
         var arr = Queue<Int>()
-        arr.addToQueue(1)
-        arr.addToQueue(2)
+        arr.add(1)
+        arr.add(2)
         assertEquals(arr.toList(), listOf(2,1))
     }
 
     @Test
     fun removesFirstInItem() {
         var arr = Queue<Int>()
-        arr.addToQueue(1)
-        arr.addToQueue(2)
-        arr.addToQueue(3)
+        arr.add(1)
+        arr.add(2)
+        arr.add(3)
         println(arr.toList())
-        arr.removeFromQueue()
+        arr.remove()
         println(arr.toList())
         assertEquals(arr.toList(), listOf(3,2))
     }
@@ -26,9 +26,9 @@ class QueueTest {
     @Test
     fun peeksAtQueue() {
         var arr = Queue<Int>()
-        arr.addToQueue(3)
-        arr.addToQueue(2)
-        arr.addToQueue(1)
+        arr.add(3)
+        arr.add(2)
+        arr.add(1)
         arr.peek()
         assertEquals(arr.peek(), 3)
     }
@@ -36,10 +36,10 @@ class QueueTest {
     @Test
     fun returnsLengthOfQueue() {
         var arr = Queue<Int>()
-        arr.addToQueue(3)
-        arr.addToQueue(2)
-        arr.addToQueue(1)
-        val size = arr.sizeOfQueue()
+        arr.add(3)
+        arr.add(2)
+        arr.add(1)
+        val size = arr.size()
         println(size)
         assertEquals(size, 3)
     }

@@ -8,7 +8,7 @@ class Queue <T>{
 
 // Queue Homework
 
-    fun addToQueue(item: T) {
+    fun add(item: T) {
         /*Accept an item and add it to the queue.*/
         if (head != null) {
             head = Node(item, head)
@@ -20,7 +20,7 @@ class Queue <T>{
 
     /*Return the last element of the queue and remove it from the queue. If
     the queue is empty, throw an exception.*/
-    fun removeFromQueue(): T {
+    fun remove(): T {
         var current = head
         var prev: Node<T>? = null
         while (current != null) {
@@ -53,7 +53,7 @@ class Queue <T>{
         throw IllegalArgumentException("List is empty!")
     }
 
-    fun sizeOfQueue(): Int {
+    fun size(): Int {
         /*Return the size of the queue.*/
         var current = head
         var counter = 0
